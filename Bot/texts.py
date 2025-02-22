@@ -1,0 +1,15 @@
+from aiogram.utils.i18n import gettext as _
+
+cinema_text = _("🎥 Movies Menu")
+contact_text = _("📞 Call center")
+drama_text = _("🎭 Drama")
+comedy_text = _("😂 Comedy")
+action_text = _("🎬 Action")
+back_text = _("⬅️ Back")
+drama_movie1 = _("🎬 Forrest Gump")
+drama_movie2 = _("🎬 Titanic")
+comedy_movie1 = _("🎬 The Mask")
+comedy_movie2 = _("🎬 Home Alone")
+action_movie1 = _("🎬 John Wick")
+action_movie2 = _("🎬 Mad Max")
+language_text = _("🇺🇿🇷🇺🇬🇧🇫🇷 Lang")
