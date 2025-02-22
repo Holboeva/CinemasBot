@@ -21,8 +21,8 @@ async def command_start_handler(message: Message) -> None:
 
 
 @dp.message(F.text == __("🇺🇿🇷🇺🇬🇧🇫🇷 Lang"))
-async def cinema_handler(message: Message, state: FSMContext) -> None:
-    texts = [_("🇺🇿 Uzbek"), _("🇷🇺 Russian"), _("🇬🇧 English"), _("🇫🇷 French"), _("⬅️ Back")]
+async def language_menu_handler(message: Message, state: FSMContext) -> None:
+    texts = _("🇺🇿 Uzbek"), _("🇷🇺 Russian"), _("🇬🇧 English"), _("🇫🇷 French"), _("⬅️ Back")
     markup = build_reply_button(texts, (4, 1))
     await state.set_state(SectorState.language)
     await message.answer(_("Choose Language: "), reply_markup=markup)
@@ -32,7 +32,7 @@ async def cinema_handler(message: Message, state: FSMContext) -> None:
 async def language_handler(message: Message, state: FSMContext) -> None:
     map_lang = {
         "🇺🇿 Uzbek": "uz",
-        "🇷🇺 Russia": "ru",
+        "🇷🇺 Russian": "ru",
         "🇬🇧 English": "en",
         "🇫🇷 French": "fr",
     }
@@ -43,7 +43,7 @@ async def language_handler(message: Message, state: FSMContext) -> None:
         I18n.middleware.set_locale(code)
     else:
         I18n.current_locale = code
-    texts = [_("🎥 Movies Menu"), _("📞 Call center"), _("🇺🇿🇷🇺🇬🇧🇫🇷 Lang")]
+    texts = _("🎥 Movies Menu"), _("📞 Call center"), _("🇺🇿🇷🇺🇬🇧🇫🇷 Lang")
     markup = build_reply_button(texts, (2,))
     await message.answer(_("🏠 Main Menu:"), reply_markup=markup)
 
