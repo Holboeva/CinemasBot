@@ -10,6 +10,7 @@ from aiogram.utils.i18n import FSMI18nMiddleware
 from dotenv import load_dotenv
 
 from Bot.handler.main_handler import *
+from Bot.middlewares.middleware import JoinChannelMiddleware
 
 load_dotenv('.env')
 TOKEN = os.getenv('BOT_TOKEN')
@@ -18,6 +19,7 @@ TOKEN = os.getenv('BOT_TOKEN')
 async def main() -> None:
     i18n = I18n(path="locales")
     dp.update.outer_middleware(FSMI18nMiddleware(i18n))
+    dp.update.outer_middleware(JoinChannelMiddleware())
     bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await dp.start_polling(bot)
 

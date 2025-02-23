@@ -1,7 +1,7 @@
 from aiogram import F
 from aiogram.filters import CommandStart
 from aiogram.fsm.context import FSMContext
-from aiogram.types import Message
+from aiogram.types import Message, CallbackQuery
 from aiogram.utils.i18n import I18n
 from aiogram.utils.i18n import gettext as _
 from aiogram.utils.i18n import lazy_gettext as __
@@ -58,3 +58,8 @@ async def cinema_handler(message: Message, state: FSMContext) -> None:
     markup = build_reply_button(texts, (3, 1))
     await state.set_state(SectorState.movies_menu)
     await message.answer("🎥 Movies Menu:", reply_markup=markup)
+
+
+@dp.callback_query(F.text == "check_if_subscribed")
+async def handle_check_if_subscribed(callback_query: CallbackQuery):
+    await callback_query.answer(text="Tekshirish bosildi ✅")
